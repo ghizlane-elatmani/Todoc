@@ -1,5 +1,6 @@
 package com.cleanup.todoc.ui;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatImageView;
@@ -13,41 +14,27 @@ import com.cleanup.todoc.R;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <p>Adapter which handles the list of tasks to display in the dedicated RecyclerView.</p>
- *
- * @author Gaëtan HERFRAY
- */
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHolder> {
-    /**
-     * The list of tasks the adapter deals with
-     */
+
+    //The list of tasks the adapter deals with
     @NonNull
     private List<Task> tasks;
 
-    /**
-     * The listener for when a task needs to be deleted
-     */
+    //The listener for when a task needs to be deleted
     @NonNull
     private final DeleteTaskListener deleteTaskListener;
 
-    /**
-     * Instantiates a new TasksAdapter.
-     *
-     * @param tasks the list of tasks the adapter deals with to set
-     */
-    TasksAdapter(@NonNull final List<Task> tasks, @NonNull final DeleteTaskListener deleteTaskListener) {
-        this.tasks = tasks;
+
+    // Instantiates a new TasksAdapter.
+    TasksAdapter(@NonNull final DeleteTaskListener deleteTaskListener) {
+        this.tasks = new ArrayList<>();
         this.deleteTaskListener = deleteTaskListener;
     }
 
-    /**
-     * Updates the list of tasks the adapter deals with.
-     *
-     * @param tasks the list of tasks the adapter deals with to set
-     */
+    // Updates the list of tasks the adapter deals with.
     void updateTasks(@NonNull final List<Task> tasks) {
         this.tasks = tasks;
         notifyDataSetChanged();
@@ -70,15 +57,9 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         return tasks.size();
     }
 
-    /**
-     * Listener for deleting tasks
-     */
+    //Listener for deleting tasks
     public interface DeleteTaskListener {
-        /**
-         * Called when a task needs to be deleted.
-         *
-         * @param task the task that needs to be deleted
-         */
+        // Called when a task needs to be deleted.
         void onDeleteTask(Task task);
     }
 
@@ -88,29 +69,19 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * @author Gaëtan HERFRAY
      */
     class TaskViewHolder extends RecyclerView.ViewHolder {
-        /**
-         * The circle icon showing the color of the project
-         */
+        //The circle icon showing the color of the project
         private final AppCompatImageView imgProject;
 
-        /**
-         * The TextView displaying the name of the task
-         */
+        //The TextView displaying the name of the task
         private final TextView lblTaskName;
 
-        /**
-         * The TextView displaying the name of the project
-         */
+        //The TextView displaying the name of the project
         private final TextView lblProjectName;
 
-        /**
-         * The delete icon
-         */
+        //The delete icon
         private final AppCompatImageView imgDelete;
 
-        /**
-         * The listener for when a task needs to be deleted
-         */
+        //The listener for when a task needs to be deleted
         private final DeleteTaskListener deleteTaskListener;
 
         /**

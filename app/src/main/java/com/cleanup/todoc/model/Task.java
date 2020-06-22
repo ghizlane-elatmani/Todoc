@@ -59,63 +59,39 @@ public class Task {
         super();
     }
 
-    /**
-     * Returns the unique identifier of the task.
-     *
-     * @return the unique identifier of the task
-     */
+    //--- GETTERS ---
     public long getId() {
         return id;
     }
-
-    /**
-     * Sets the unique identifier of the task.
-     *
-     * @param id the unique idenifier of the task to set
-     */
-    private void setId(long id) {
-        this.id = id;
+    public long getProjectId() {
+        return projectId;
     }
-
-    /**
-     * Sets the unique identifier of the project associated to the task.
-     *
-     * @param projectId the unique identifier of the project associated to the task to set
-     */
-    private void setProjectId(long projectId) {
-        this.projectId = projectId;
-    }
-
-    /**
-     * Returns the name of the task.
-     *
-     * @return the name of the task
-     */
     @NonNull
     public String getName() {
         return name;
     }
-
-    /**
-     * Sets the name of the task.
-     *
-     * @param name the name of the task to set
-     */
-    private void setName(@NonNull String name) {
-        this.name = name;
-    }
-
     public long getCreationTimestamp() {
         return creationTimestamp;
     }
 
-    /**
-     * Sets the timestamp when the task has been created.
-     *
-     * @param creationTimestamp the timestamp when the task has been created to set
-     */
-    private void setCreationTimestamp(long creationTimestamp) {
+    //--- SETTERS ---
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    public void setProjectId(long projectId) {
+        this.projectId = projectId;
+    }
+    public void setName(@NonNull String name) {
+        this.name = name;
+    }
+    public void setCreationTimestamp(long creationTimestamp) {
         this.creationTimestamp = creationTimestamp;
     }
 
+    //--- METHOD ---
+    @Nullable
+    public Project getProject() {
+        return Project.getProjectById(projectId);
+    }
 }

@@ -3,6 +3,7 @@ package com.cleanup.todoc.Repository;
 import android.arch.lifecycle.LiveData;
 
 import com.cleanup.todoc.database.dao.TaskDao;
+import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
 import java.util.List;
@@ -23,11 +24,6 @@ public class TaskDataRepository {
     //DELETE
     public void deleteTask(long id){
         taskDao.deleteTask(id);
-    }
-
-    //GET TASK
-    public LiveData<Task> getTask(long id){
-        return taskDao.getTask(id);
     }
 
     //GET ALL TASKS
