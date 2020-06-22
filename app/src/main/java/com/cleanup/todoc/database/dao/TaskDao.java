@@ -11,15 +11,7 @@ import com.cleanup.todoc.model.Task;
 import java.util.List;
 
 @Dao
-public interface TodocDao {
-
-    // Get tasks by project'id
-    @Query("SELECT * FROM Task WHERE projectId = :projectId")
-    List<Task> getTasksByIdProject(long projectId);
-
-    // Get all projects
-    @Query("SELECT * FROM Project")
-    LiveData<List<Project>> getAllProjects();
+public interface TaskDao {
 
     // Create a new task
     @Insert
@@ -28,4 +20,12 @@ public interface TodocDao {
     // Delete a task
     @Query("DELETE FROM Task WHERE id = :id")
     int deleteTask(long id);
+
+    // Get all tasks
+    @Query("SELECT * FROM task")
+    LiveData<List<Task>> getAllTasks();
+
+    // Get tasks by project'id
+    @Query("SELECT * FROM Task WHERE projectId = :projectId")
+    List<Task> getTasksByIdProject(long projectId);
 }
