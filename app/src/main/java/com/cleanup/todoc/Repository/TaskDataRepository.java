@@ -25,7 +25,12 @@ public class TaskDataRepository {
         taskDao.deleteTask(id);
     }
 
-    //GET
+    //GET TASK
+    public LiveData<Task> getTask(long id){
+        return taskDao.getTask(id);
+    }
+
+    //GET ALL TASKS
     public LiveData<List<Task>> getAllTasks(){
         return taskDao.getAllTasks();
     }

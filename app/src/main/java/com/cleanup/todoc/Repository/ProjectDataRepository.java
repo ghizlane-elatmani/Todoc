@@ -16,7 +16,7 @@ public class ProjectDataRepository {
     }
 
     //GET
-    public LiveData<List<Project>> getAllTasks(){
+    public LiveData<List<Project>> getAllProjects(){
         return projectDao.getAllProjects();
     }
 
