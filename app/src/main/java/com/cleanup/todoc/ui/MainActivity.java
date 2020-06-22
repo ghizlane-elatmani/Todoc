@@ -100,8 +100,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        taskDao = App.database.taskDao();
-
         listTasks = findViewById(R.id.list_tasks);
         lblNoTasks = findViewById(R.id.lbl_no_task);
 
