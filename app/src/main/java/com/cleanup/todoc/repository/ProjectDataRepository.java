@@ -1,4 +1,4 @@
-package com.cleanup.todoc.Repository;
+package com.cleanup.todoc.repository;
 
 import android.arch.lifecycle.LiveData;
 

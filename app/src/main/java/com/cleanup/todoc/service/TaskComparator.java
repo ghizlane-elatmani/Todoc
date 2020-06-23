@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class ApiService {
+public class TaskComparator {
 
     /**
      * Comparator to sort task from A to Z

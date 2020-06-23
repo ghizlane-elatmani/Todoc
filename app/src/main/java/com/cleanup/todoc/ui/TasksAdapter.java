@@ -63,11 +63,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         void onDeleteTask(Task task);
     }
 
-    /**
-     * <p>ViewHolder for task items in the tasks list</p>
-     *
-     * @author Gaëtan HERFRAY
-     */
+    // ViewHolder for task items in the tasks list
     class TaskViewHolder extends RecyclerView.ViewHolder {
         //The circle icon showing the color of the project
         private final AppCompatImageView imgProject;

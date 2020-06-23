@@ -4,8 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 import android.support.annotation.Nullable;
 
-import com.cleanup.todoc.Repository.ProjectDataRepository;
-import com.cleanup.todoc.Repository.TaskDataRepository;
+import com.cleanup.todoc.repository.ProjectDataRepository;
+import com.cleanup.todoc.repository.TaskDataRepository;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
