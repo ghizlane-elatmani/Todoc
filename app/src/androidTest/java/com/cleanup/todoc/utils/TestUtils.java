@@ -1,4 +1,4 @@
-package com.cleanup.todoc;
+package com.cleanup.todoc.utils;
 
 import android.support.annotation.IdRes;
 import android.support.test.espresso.PerformException;
@@ -8,6 +8,8 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.espresso.util.HumanReadables;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.cleanup.todoc.utils.RecyclerViewMatcher;
 
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
