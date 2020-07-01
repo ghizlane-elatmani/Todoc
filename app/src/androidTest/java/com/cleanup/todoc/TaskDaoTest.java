@@ -48,6 +48,12 @@ public class TaskDaoTest {
     }
 
     @Test
+    public void test_GetTask() throws InterruptedException{
+        List<Task> tasks = LiveDataTestUtil.getValue(this.database.taskDao().getAllTasks());
+        assertTrue(tasks.isEmpty());
+    }
+
+    @Test
     public void test_InsertTask() throws InterruptedException{
         //insert the task
         this.database.taskDao().insertTask(TASK);
