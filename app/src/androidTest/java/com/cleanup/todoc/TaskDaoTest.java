@@ -99,7 +99,7 @@ public class TaskDaoTest {
 
         //TEST
         List<Task> tasks = LiveDataTestUtil.getValue(this.database.taskDao().getAllTasks());
-        assertEquals(tasks.size(), tasks.size());
+        assertEquals(tasksList.size(), tasks.size());
 
         assertEquals(tasksList.get(0).getName(), tasks.get(0).getName());
         assertEquals(tasksList.get(1).getName(), tasks.get(1).getName());
