@@ -10,17 +10,21 @@ import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 import com.cleanup.todoc.utils.LiveDataTestUtil;
 
+import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(AndroidJUnit4.class)
 public class TaskDaoTest {
@@ -74,5 +78,31 @@ public class TaskDaoTest {
         //TEST
         List<Task> tasks = LiveDataTestUtil.getValue(this.database.taskDao().getAllTasks());
         assertFalse(tasks.contains(TASK));
+    }
+
+    @Test
+    public void test_InsertAndCompareListofTask() throws InterruptedException {
+        List<Task> tasksList = new ArrayList<>();
+        Task task0 = new Task(projects[0].getId(), "Appeler le client", new Date().getTime());
+        Task task1 = new Task(projects[2].getId(), "Modifier la couleur des textes", new Date().getTime());
+        Task task2 = new Task(projects[1].getId(), "Ajouter un header sur le site", new Date().getTime());
+
+        //add tasks to the list
+        tasksList.add(task0);
+        tasksList.add(task1);
+        tasksList.add(task2);
+
+        //insert tasks
+        this.database.taskDao().insertTask(task0);
+        this.database.taskDao().insertTask(task1);
+        this.database.taskDao().insertTask(task2);
+
+        //TEST
+        List<Task> tasks = LiveDataTestUtil.getValue(this.database.taskDao().getAllTasks());
+        assertEquals(tasks.size(), tasks.size());
+
+        assertEquals(tasksList.get(0).getName(), tasks.get(0).getName());
+        assertEquals(tasksList.get(1).getName(), tasks.get(1).getName());
+        assertEquals(tasksList.get(2).getName(), tasks.get(2).getName());
     }
 }
